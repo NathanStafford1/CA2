@@ -61,7 +61,31 @@ include('includes/header.php');
 
 <section>
 <!-- display a table of records -->
-<h2><?php echo $category_name; ?></h2>
+
+<nav class="navbar">
+ <!-- NAVIGATION MENU -->
+ <ul class="nav-links">
+ <!-- USING CHECKBOX HACK -->
+ <input type="checkbox" id="checkbox_toggle" />
+ <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+ <!-- NAVIGATION MENUS -->
+ <div class="menu">
+ <li><a href="/">Home</a></li>
+ <li><a href="/">About</a></li>
+ <li class="services">
+ <a href="/">Services</a>
+ <!-- DROPDOWN MENU -->
+ <ul class="dropdown">
+ <li><a href="/">Liverpool jerseys</a></li>
+ <li><a href="/">Man united jerseys</a></li>
+ </ul>
+ </li>
+ <li><a href="/">Pricing</a></li>
+ <li><a href="/">Contact</a></li>
+ </div>
+ </ul>
+ </nav>
+ <h2><?php echo $category_name; ?></h2>
 <table>
 <tr>
 <th>Image</th>

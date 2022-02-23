@@ -18,7 +18,7 @@ include('includes/header.php');
               id="add_record_form">
 
             <label>Category:</label>
-            <select name="category_id">
+            <select name="category_id" >
             <?php foreach ($categories as $category) : ?>
                 <option value="<?php echo $category['categoryID']; ?>">
                     <?php echo $category['categoryName']; ?>
