@@ -1,8 +1,33 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 01, 2022 at 01:39 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ca1`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `categories`
 --
-
+DROP DATABASE IF EXISTS ca1;
+CREATE DATABASE ca1;
 CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
   `categoryName` varchar(255) NOT NULL
@@ -13,9 +38,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
-(1, 'Category 1'),
-(2, 'Category 2'),
-(3, 'Category 3');
+(1, 'Liverpool Jerseys'),
+(2, 'Manchester United jerseys');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `records`
@@ -26,6 +52,7 @@ CREATE TABLE `records` (
   `categoryID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
+  `quantity` int(3) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -33,23 +60,23 @@ CREATE TABLE `records` (
 -- Dumping data for table `records`
 --
 
-INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`, `image`) VALUES
-(1, 1, 'Some text', '12.00', '644471.jpg'),
-(2, 1, 'Some text', '15.00', '233012.jpg'),
-(3, 1, 'Some text', '18.00', '329484.jpg'),
-(4, 1, 'Some text', '10.00', '644055.jpg'),
-(5, 2, 'Some text', '16.00', '373465.jpg'),
-(6, 2, 'Some text', '19.00', '373989.jpg'),
-(7, 2, 'Some text', '12.00', '374104.jpg'),
-(8, 2, 'Some text', '10.00', '4733.jpg'),
-(9, 2, 'Some text', '15.00', '834551.jpg'),
-(10, 3, 'Some text', '13.00', '908783.jpg'),
-(11, 3, 'Some text', '17.00', '835545.jpg'),
-(12, 3, 'Some text', '19.00', '119273.jpg');
+INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`,`quantity`,`image`) VALUES
+(1, 1, 'Liverpool Home Kit', '60.00','11', 'LiverpoolHomeKit.jpg'),
+(2, 1, 'Liverpool Away Kit', '54.99','24', 'LiverpoolAwayKit.jpg'),
+(3, 1, 'Liverpool Third Kit', '49.99','19', 'LiverpoolThirdKit.jpg'),
+(5, 2, 'Manchester United Home Kit','35', '54.99', 'ManuHomeKit.jpg'),
+(6, 2, 'Manchester united away kit','19', '49.99', 'ManuAwayKit.jpg'),
+(7, 2, 'Manchester United Third Kit','8', '59.99', 'UnitedThirdKit.jpg');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`categoryID`);
 
 --
 -- Indexes for table `records`
@@ -62,7 +89,18 @@ ALTER TABLE `records`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
   MODIFY `recordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
