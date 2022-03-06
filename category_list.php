@@ -28,7 +28,7 @@ include('includes/header.php');
                       id="delete_product_form">
                     <input type="hidden" name="category_id"
                            value="<?php echo $category['categoryID']; ?>">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete" class="btn btn-danger" disabled>
                 </form>
             </td>
         </tr>

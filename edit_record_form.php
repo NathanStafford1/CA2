@@ -17,7 +17,7 @@ $statement->closeCursor();
 include('includes/header.php');
 ?>
         <h1>Edit Product</h1>
-        <form action="edit_record.php" method="post" enctype="multipart/form-data"
+        <form action="edit_record.php" method="post" enctype="multipart/form-data" class="form-control"
               id="add_record_form">
             <input type="hidden" name="original_image" value="<?php echo $records['image']; ?>" />
             <input type="hidden" name="record_id"
@@ -28,17 +28,22 @@ include('includes/header.php');
                    value="<?php echo $records['categoryID']; ?>">
             <br>
 
-            <label>Name:</label>
+            <label class="input-group mb-3">Name:</label>
             <input type="input" name="name"
                    value="<?php echo $records['name']; ?>">
             <br>
 
-            <label>List Price:</label>
+            <label class="input-group mb-3">List Price:</label>
             <input type="input" name="price"
                    value="<?php echo $records['price']; ?>">
             <br>
 
-            <label>Image:</label>
+            <label class="input-group mb-3">Quantity:</label>
+            <input type="input" name="quantity"
+                   value="<?php echo $records['quantity']; ?>">
+            <br>
+
+            <label class="input-group mb-3">Image:</label>
             <input type="file" name="image" accept="image/*" />
             <br>            
             <?php if ($records['image'] != "") { ?>
@@ -46,7 +51,7 @@ include('includes/header.php');
             <?php } ?>
             
             <label>&nbsp;</label>
-            <input type="submit" value="Save Changes">
+            <input type="submit" value="Save Changes" class="btn btn-success">
             <br>
         </form>
         <p><a href="index.php">View Homepage</a></p>

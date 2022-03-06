@@ -38,59 +38,67 @@ $statement3->execute();
 $records = $statement3->fetchAll();
 $statement3->closeCursor();
 ?>
+<br>
+<br>
 <div class="container">
 <?php
 include('includes/header.php');
 ?>
-<h1>Record List</h1>
+<nav class="navbar navbar-light bg-light fixed-top" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Menu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" href = "index.php" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+          </table>
+            <p><a class="btn btn-primary" href="add_record_form.php" >Add Record</a></p>
+            <p><a class="btn btn-primary" href="category_list.php">Manage Categories</a></p>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Team stores
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+          
+            <?php foreach ($categories as $category) : ?>
+            <li><a class="btn btn-dark" href=".?category_id=<?php echo $category['categoryID']; ?>">
+                <?php echo $category['categoryName']; ?>
+                <br>
+                </a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+          </li>
+        </ul>
+        <form class="d-flex" action = "search.php" method="post">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <aside>
 <!-- display a list of categories -->
-<h2>Categories</h2>
-<nav>
-<ul>
-<?php foreach ($categories as $category) : ?>
-<li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
-<?php echo $category['categoryName']; ?>
-</a>
-</li>
-<?php endforeach; ?>
-</ul>
-</nav>          
 </aside>
 
 <section>
-<!-- display a table of records -->
-
-<nav class="navbar">
- <!-- NAVIGATION MENU -->
- <ul class="nav-links">
- <!-- USING CHECKBOX HACK -->
- <input type="checkbox" id="checkbox_toggle" />
- <label for="checkbox_toggle" class="hamburger">&#9776;</label>
- <!-- NAVIGATION MENUS -->
- <div class="menu">
- <li><a href="/">Home</a></li>
- <li><a href="/">About</a></li>
- <li class="services">
- <a href="/">Services</a>
- <!-- DROPDOWN MENU -->
- <ul class="dropdown">
- <li><a href="/">Liverpool jerseys</a></li>
- <li><a href="/">Man united jerseys</a></li>
- </ul>
- </li>
- <li><a href="/">Pricing</a></li>
- <li><a href="/">Contact</a></li>
- </div>
- </ul>
- </nav>
- <h2><?php echo $category_name; ?></h2>
-<table>
+<table class="table table-striped table-bordered caption-top table-responsive sm shadow p-3 mb-5 bg-body rounded">
+<caption><?php echo $category_name; ?></caption>
 <tr>
 <th>Image</th>
 <th>Name</th>
 <th>Price</th>
+<th>Quantity</th>
 <th>Delete</th>
 <th>Edit</th>
 </tr>
@@ -99,13 +107,14 @@ include('includes/header.php');
 <td><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></td>
 <td><?php echo $record['name']; ?></td>
 <td class="right"><?php echo $record['price']; ?></td>
+<td class="right"><?php echo $record['quantity']; ?></td>
 <td><form action="delete_record.php" method="post"
 id="delete_record_form">
 <input type="hidden" name="record_id"
 value="<?php echo $record['recordID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Delete">
+<input type="submit" value="Delete" class="btn btn-danger" disabled>
 </form></td>
 <td><form action="edit_record_form.php" method="post"
 id="delete_record_form">
@@ -113,13 +122,11 @@ id="delete_record_form">
 value="<?php echo $record['recordID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Edit">
+<input type="submit" value="Edit" class="btn btn-success">
 </form></td>
 </tr>
 <?php endforeach; ?>
 </table>
-<p><a href="add_record_form.php">Add Record</a></p>
-<p><a href="category_list.php">Manage Categories</a></p>
 </section>
 <?php
 include('includes/footer.php');
