@@ -44,13 +44,13 @@ $statement3->closeCursor();
 <?php
 include('includes/header.php');
 ?>
-<nav class="navbar navbar-light bg-light fixed-top" >
+<nav class="navbar navbar-light bg-light fixed-top navbar-dark bg-dark" >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Menu</a>
+    <a class="navbar-brand navbar-dark bg-dark" href="index.php">Menu</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end navbar-dark bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" href = "index.php" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -69,7 +69,7 @@ include('includes/header.php');
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
           
             <?php foreach ($categories as $category) : ?>
-            <li><a class="btn btn-dark" href=".?category_id=<?php echo $category['categoryID']; ?>">
+            <li><a class="btn" href=".?category_id=<?php echo $category['categoryID']; ?>">
                 <?php echo $category['categoryName']; ?>
                 <br>
                 </a>
@@ -78,9 +78,6 @@ include('includes/header.php');
         </ul>
           </li>
         </ul>
-        <form class="d-flex" action = "search.php" method="post">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>

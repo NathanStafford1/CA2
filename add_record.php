@@ -4,10 +4,11 @@
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'name');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_FLOAT);
 
 // Validate inputs
 if ($category_id == null || $category_id == false ||
-    $name == null || $price == null || $price == false || $quantity == null || $quantity == false ) {
+    $name == null || $price == null || $price == false) {
     $error = "Invalid product data. Check all fields and try again.";
     include('error.php');
     exit();
@@ -65,7 +66,7 @@ if ($category_id == null || $category_id == false ||
     $query = "INSERT INTO records
                  (categoryID, name, price, quantity, image)
               VALUES
-                 (:category_id, :name, :price,quantity, :image)";
+                 (:category_id, :name, :price, :quantity, :image)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':name', $name);

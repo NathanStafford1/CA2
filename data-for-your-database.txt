@@ -38,8 +38,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
-(1, 'Liverpool Jerseys'),
-(2, 'Manchester United jerseys');
+(1, 'Liverpool F.C Jerseys'),
+(2, 'Manchester United jerseys'),
+(3, 'Tottenham Hotspur jerseys'),
+(4, 'Chelsea F.C jerseys'),
+(5, 'Arsenal F.C jerseys');
+
 
 -- --------------------------------------------------------
 
@@ -64,9 +68,18 @@ INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`,`quantity`,`ima
 (1, 1, 'Liverpool Home Kit', '60.00','11', 'LiverpoolHomeKit.jpg'),
 (2, 1, 'Liverpool Away Kit', '54.99','24', 'LiverpoolAwayKit.jpg'),
 (3, 1, 'Liverpool Third Kit', '49.99','19', 'LiverpoolThirdKit.jpg'),
-(5, 2, 'Manchester United Home Kit','35', '54.99', 'ManuHomeKit.jpg'),
-(6, 2, 'Manchester united away kit','19', '49.99', 'ManuAwayKit.jpg'),
-(7, 2, 'Manchester United Third Kit','8', '59.99', 'UnitedThirdKit.jpg');
+(4, 2, 'Manchester United Home Kit','35', '54.99', 'ManuHomeKit.jpg'),
+(5, 2, 'Manchester united Away kit','19', '49.99', 'ManuAwayKit.jpg'),
+(6, 2, 'Manchester United Third Kit','8', '59.99', 'UnitedThirdKit.jpg'),
+(7, 3, 'Tottenham Home Kit', '60.00','11', 'TottenhamHomeKit.jpg'),
+(8, 3, 'Tottenham Away Kit', '54.99','24', 'TottenhamAwayKit.jpg'),
+(9, 3, 'Tottenham Third Kit', '49.99','19', 'TottenhamThirdKit.jpg'),
+(10, 4, 'Chelsea Home Kit','35', '54.99', 'ChelseaHomeKit.jpg'),
+(11, 4, 'Chelsea Away kit','19', '49.99', 'ChelseaAwayKit.jpg'),
+(12, 4, 'Chelsea Third Kit','8', '59.99', 'ChelseaThirdKit.png'),
+(13, 5, 'Arsenal Home Kit','35', '54.99', 'ArsenalHomeKit.jpg'),
+(14, 5, 'Arsenal Away kit','19', '49.99', 'ArsenalAwayKit.jpg'),
+(15, 5, 'Arsenal Third Kit','8', '59.99', 'ArsenalThirdKit.jpg');
 
 --
 -- Indexes for dumped tables

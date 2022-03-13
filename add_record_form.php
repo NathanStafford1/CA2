@@ -15,15 +15,15 @@ $statement->closeCursor();
 include('includes/header.php');
 ?>
 
-<nav class="navbar navbar-light bg-light fixed-top" >
+<nav class="navbar navbar-light bg-light fixed-top navbar-dark bg-dark" >
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Menu</a>
+    <a class="navbar-brand navbar-dark bg-dark" href="index.php">Menu</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end navbar-dark bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <h5 class="offcanvas-title" href = "index.php" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -35,12 +35,12 @@ include('includes/header.php');
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Team Stores
+            Team stores
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
           
             <?php foreach ($categories as $category) : ?>
-            <li><a class="btn btn-dark" href=".?category_id=<?php echo $category['categoryID']; ?>">
+            <li><a class="btn" href=".?category_id=<?php echo $category['categoryID']; ?>">
                 <?php echo $category['categoryName']; ?>
                 <br>
                 </a>
@@ -49,7 +49,7 @@ include('includes/header.php');
         </ul>
           </li>
         </ul>
-        
+        </form>
       </div>
     </div>
   </div>
@@ -67,16 +67,16 @@ include('includes/header.php');
             <?php endforeach; ?>
             </select>
             <br>
-            <label class="col-sm-2 col-form-label" for="userid">Name:</label>
-            <input type="input" name="userid" id="userid" size="12" onBlur="userid_validation();"/><span id="uid_err"></span>
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <input type="input" name="name" id="userid" size="12" onBlur="userid_validation();"/><span id="uid_err"></span>
             <br>
 
             <label class="col-sm-2 col-form-label">List Price:</label>
-            <input type="input" name="price">
+            <input type="input" name="price" id="passid" onBlur="passwd_validation();"><span id="passwd_err"></span>
             <br>
             
             <label class="col-sm-2 col-form-label">Quantity:</label>
-            <input type="input" name="quantity">
+            <input type="input" name="quantity" id="quantity" onBlur="quantity_validation();"><span id="quantity_err"></span>
             <br>
             
             <label class="col-sm-2 col-form-label">Image:</label>
@@ -84,11 +84,11 @@ include('includes/header.php');
             <br>
             
             <br>
-            <input  type="submit" value="Add Record" class="btn btn-success">
+            <input type="submit" value="Add Record" class="btn btn-success">
             <br>
         </form>
         
-        <p><a href="index.php">View Homepage</a></p>
+        <p><a href="index.php" class="btn btn-success">View Homepage</a></p>
     <?php
 include('includes/footer.php');
 ?>

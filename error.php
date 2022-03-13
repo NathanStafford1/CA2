@@ -9,7 +9,7 @@
 
 <!-- the body section -->
 <body>
-    <header><h1>My Guitar Shop</h1></header>
+    <header><h1>Premier League Store</h1></header>
 
     <main>
         <h2 class="top">Error</h2>
@@ -17,7 +17,7 @@
     </main>
 
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> My Guitar Shop, Inc.</p>
+        <p>&copy; <?php echo date("Y"); ?> Premier League Store, Inc.</p>
     </footer>
 </body>
 </html>

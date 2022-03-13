@@ -12,10 +12,50 @@ $records = $statement->fetch(PDO::FETCH_ASSOC);
 $statement->closeCursor();
 ?>
 <!-- the head section -->
+<br>
  <div class="container">
 <?php
 include('includes/header.php');
 ?>
+<nav class="navbar navbar-light bg-light fixed-top navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-dark bg-dark" href="index.php">Menu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end navbar-dark bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" href = "index.php" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+          </table>
+            <p><a class="btn btn-primary" href="add_record_form.php" >Add Record</a></p>
+            <p><a class="btn btn-primary" href="category_list.php">Manage Categories</a></p>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Team stores
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+          
+            <?php foreach ($categories as $category) : ?>
+            <li><a class="btn" href=".?category_id=<?php echo $category['categoryID']; ?>">
+                <?php echo $category['categoryName']; ?>
+                <br>
+                </a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+          </li>
+        </ul>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
         <h1>Edit Product</h1>
         <form action="edit_record.php" method="post" enctype="multipart/form-data" class="form-control"
               id="add_record_form">
@@ -25,22 +65,22 @@ include('includes/header.php');
 
             <label>Category ID:</label>
             <input type="category_id" name="category_id"
-                   value="<?php echo $records['categoryID']; ?>">
+                   value="<?php echo $records['categoryID']; ?>" >
             <br>
 
             <label class="input-group mb-3">Name:</label>
             <input type="input" name="name"
-                   value="<?php echo $records['name']; ?>">
+                   value="<?php echo $records['name']; ?>" id="userid" onBlur="userid_validation();"/><span id="uid_err"></span>
             <br>
 
             <label class="input-group mb-3">List Price:</label>
             <input type="input" name="price"
-                   value="<?php echo $records['price']; ?>">
+                   value="<?php echo $records['price']; ?>" id="passid" onBlur="passwd_validation();"><span id="passwd_err"></span>
             <br>
 
             <label class="input-group mb-3">Quantity:</label>
             <input type="input" name="quantity"
-                   value="<?php echo $records['quantity']; ?>">
+                   value="<?php echo $records['quantity']; ?>"  id="quantity" onBlur="quantity_validation();"><span id="quantity_err"></span>
             <br>
 
             <label class="input-group mb-3">Image:</label>
@@ -54,7 +94,7 @@ include('includes/header.php');
             <input type="submit" value="Save Changes" class="btn btn-success">
             <br>
         </form>
-        <p><a href="index.php">View Homepage</a></p>
+        <p><a href="index.php" class="btn btn-success">View Homepage</a></p>
     <?php
 include('includes/footer.php');
 ?>

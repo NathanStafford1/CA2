@@ -5,6 +5,7 @@ $record_id = filter_input(INPUT_POST, 'record_id', FILTER_VALIDATE_INT);
 $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'name');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_FLOAT);
 
 // Validate inputs
 if ($record_id == NULL || $record_id == FALSE || $category_id == NULL ||
