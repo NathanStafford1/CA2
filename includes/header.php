@@ -13,5 +13,5 @@
 <!-- the body section -->
 <body>
 &nbsp;
-<header class ="nav flex-column"><h1>Premier League Jersey Store</h1></header>
+<header class ="nav flex-column text-decoration-underline"><h1>Premier League Jersey Store</h1></header>
 <script src = "javascript/validation.js"></script>

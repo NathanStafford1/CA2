@@ -43,7 +43,8 @@ function userid_validation(){
         var passid_name = document.getElementById("quantity");
         var passid_value = document.getElementById("quantity").value;
         var passid_length = passid_value.length;
-        if(passid_length<0)
+        var numbers = /^[0-9]+$/;
+        if(!passid_value.match(numbers))
         {
         document.getElementById('quantity_err').innerHTML = 'Quantity must be a positive number';
         passid_name.focus();

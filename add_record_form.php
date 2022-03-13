@@ -9,7 +9,7 @@ $categories = $statement->fetchAll();
 $statement->closeCursor();
 ?>
 <!-- the head section -->
- <div class="container">
+<div class="bg-secondary bg-gradient p-5 text-dark bg-opacity-75">
      <br>
 <?php
 include('includes/header.php');
@@ -54,7 +54,7 @@ include('includes/header.php');
     </div>
   </div>
 </nav>
-        <h1>Add Jersey</h1>
+        <h1 class="text-decoration-underline">Add Jersey</h1>
         <form name='registration' action="add_record.php" method="post" enctype="multipart/form-data" class="row mb-3 form-control"
               id="add_record_form">
 

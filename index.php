@@ -1,3 +1,4 @@
+
 <?php
 require_once('database.php');
 
@@ -40,7 +41,7 @@ $statement3->closeCursor();
 ?>
 <br>
 <br>
-<div class="container">
+<div class="bg-secondary bg-gradient p-5 text-dark bg-opacity-75">
 <?php
 include('includes/header.php');
 ?>

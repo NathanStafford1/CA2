@@ -10,7 +10,7 @@
     $statement->closeCursor();
 ?>
 <!-- the head section -->
-<div class="container">
+<div class="bg-secondary bg-gradient p-5 text-dark bg-opacity-75">
     <br>
 <?php
 include('includes/header.php');
@@ -55,15 +55,15 @@ include('includes/header.php');
   </div>
 </nav>
     <h1>Category List</h1>
-    <table>
+    <table class="row mb-3 form-control">
         <tr>
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>
         <?php foreach ($categories as $category) : ?>
-        <tr>
-            <td><?php echo $category['categoryName']; ?></td>
-            <td>
+        <tr >
+            <td ><?php echo $category['categoryName']; ?></td>
+            <td >
                 <form action="delete_category.php" method="post"
                       id="delete_product_form">
                     <input type="hidden" name="category_id"
@@ -77,7 +77,7 @@ include('includes/header.php');
     <br>
 
     <h2>Add Category</h2>
-    <form action="add_category.php" method="post"
+    <form action="add_category.php" method="post" 
           id="add_category_form">
 
         <label>Name:</label>

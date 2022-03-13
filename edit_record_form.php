@@ -13,7 +13,7 @@ $statement->closeCursor();
 ?>
 <!-- the head section -->
 <br>
- <div class="container">
+<div class="bg-secondary bg-gradient p-5 text-dark bg-opacity-75">
 <?php
 include('includes/header.php');
 ?>
@@ -56,7 +56,7 @@ include('includes/header.php');
     </div>
   </div>
 </nav>
-        <h1>Edit Product</h1>
+        <h1 class="text-decoration-underline">Edit Product</h1>
         <form action="edit_record.php" method="post" enctype="multipart/form-data" class="form-control"
               id="add_record_form">
             <input type="hidden" name="original_image" value="<?php echo $records['image']; ?>" />
